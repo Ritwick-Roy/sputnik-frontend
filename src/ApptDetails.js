@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams,useNavigate } from "react-router-dom";
+import getBaseUrl from "./utils";
 
 const ApptDetails = () => {
   const [appt, setAppt] = useState([]);
@@ -8,13 +9,13 @@ const ApptDetails = () => {
   const navigate=useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/appt/" + patient).then((res) => {
+    axios.get(`${getBaseUrl()}/api/appt` + patient).then((res) => {
       setAppt(res.data);
     });
   }, [patient]);
 
   const clickHandler = async () => {
-    await axios.delete("http://localhost:8000/api/appt/" + patient);
+    await axios.delete(`${getBaseUrl()}/api/appt`+ patient);
     navigate('/appointments');    
   };
 

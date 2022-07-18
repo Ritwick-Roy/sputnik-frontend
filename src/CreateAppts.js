@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import getBaseUrl from "./utils";
 
 const CreateAppts = () => {
   const [patient, setPatient] = useState("");
@@ -12,7 +13,7 @@ const CreateAppts = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8000/api/appt", {
+    await axios.post(`${getBaseUrl()}/api/appt`, {
       patient,
       doctor,
       date,

@@ -11,7 +11,7 @@ const Navbar = () => {
           to="/predict"
           style={{
             color: "white",
-            backgroundColor: "#f1356d",
+            backgroundColor: "#079BBB",
             borderRadius: "8px",
           }}
         >

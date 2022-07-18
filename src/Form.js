@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import getBaseUrl from "./utils";
 
 const Form = () => {
   const [prediction, setPrediction] = useState(null);
@@ -83,7 +84,7 @@ const Form = () => {
     e.preventDefault();
     axios
       .post(
-        "http://localhost:8000/api/predict",
+          `${getBaseUrl()}/api/predict`,
         {
           muscle_weakness: dis1 === "yes",
           coma: dis2 === "yes",

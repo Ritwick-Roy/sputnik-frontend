@@ -1,11 +1,12 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import getBaseUrl from "./utils";
 
 const Appointments = () => {
   const [appts, setAppts] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8000/api/appt").then((res) => {
+    axios.get(`${getBaseUrl()}/api/appt`).then((res) => {
       setAppts(res.data);
     });
   }, []);
