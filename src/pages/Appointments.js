@@ -2,6 +2,9 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { getBaseUrl } from "../utils/index";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 
 const Appointments = () => {
   const [appts, setAppts] = useState([]);
@@ -58,7 +61,9 @@ const Appointments = () => {
           <p>Description: {appt.description}</p>
           <p>Date: {appt.date.slice(0,10)}</p>
           <p>Status: {appt.status}</p>
-          <button onClick={()=>{clickHandler(appt._id)} }>Delete</button>
+          <IconButton aria-label="delete" size="small" onClick= {()=>{clickHandler(appt._id)}}>
+            <DeleteIcon fontSize="small" />
+          </IconButton>
         </div>
       ))}
 

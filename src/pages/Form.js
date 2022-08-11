@@ -43,42 +43,42 @@ const Form = () => {
   const [dis35, setDis35] = useState("no");
   const [dis36, setDis36] = useState("no");
   const symptoms = [
-    "muscle_weakness",
-    "coma",
-    "red_spots_over_body",
-    "high_fever",
-    "pain_behind_the_eyes",
-    "receiving_blood_transfusion",
-    "blood_in_sputum",
-    "throat_irritation",
-    "rusty_sputum",
-    "slurred_speech",
-    "increased_appetite",
-    "enlarged_thyroid",
-    "irritability",
-    "nodal_skin_eruptions",
-    "spotting_urination",
-    "shivering",
-    "malaise",
-    "sunken_eyes",
-    "pus_filled_pimples",
-    "weakness_in_limbs",
-    "lack_of_concentration",
-    "visual_disturbances",
-    "altered_sensorium",
-    "unsteadiness",
-    "bladder_discomfort",
-    "passage_of_gases",
-    "patches_in_throat",
-    "belly_pain",
-    "mucoid_sputum",
-    "ulcers_on_tongue",
-    "cramps",
-    "swelling_of_stomach",
-    "pain_during_bowel_movements",
-    "hip_joint_pain",
-    "red_sore_around_nose",
-    "movement_stiffness",
+    "Weakness in muscles",
+    "Ever been in a coma",
+    "Red spots over body",
+    "High Fever",
+    "Feel pain behind the eyes",
+    "Receiving blood transfusion or any history with it",
+    "Blood traces in sputum",
+    "Irritation in throat",
+    "Rusty sputum",
+    "Slurred speech",
+    "Increase in appetite",
+    "Enlarged thyroid",
+    "Irritability",
+    "Nodal skin eruptions",
+    "Spotting urination",
+    "Shivering",
+    "Malaise",
+    "Sunken eyes",
+    "Pus in pimples",
+    "Weakness in limbs",
+    "Lack of concentration",
+    "Visual disturbances",
+    "Altered sensorium",
+    "Unsteadiness",
+    "Bladder discomfort",
+    "Passage of gases",
+    "Patches in throat",
+    "Belly pain",
+    "Mucoid sputum",
+    "Ulcers on tongue",
+    "Cramps",
+    "Swelling of/in stomach",
+    "Pain during bowel movements",
+    "Hip/joint pain",
+    "Red sore around nose",
+    "Stiffness in movements",
   ];
   const handleSubmit = asyncHandler(async (e) => {
     e.preventDefault();
@@ -136,14 +136,14 @@ const Form = () => {
   });
   return (
     <div>
-      <h2>Check Disease</h2>
+      <h2>Predict disease</h2>
       <h3>
-        Welcome to out symptoms checker page, the model is still in beta but you
+        Welcome to our symptoms checker page, the model is still in beta but you
         can still check it out as we can ensure a 80% plus accuracy.
       </h3>
       { !prediction && (<div>
       <p>
-        Just select the symptoms that the patient is exhibiting or suspecting to
+        Select the symptoms that the patient is exhibiting or suspecting to
         have.
       </p>
       <form onSubmit={handleSubmit}>

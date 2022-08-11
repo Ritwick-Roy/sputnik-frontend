@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import pic from "../images/doctor-one.png";
 import { getBaseUrl } from "../utils";
-
+import Button from '@mui/material/Button';
 const Home = () => {
   const navigate = useNavigate();
   const [refresh, setRefresh] = useState();
@@ -34,14 +34,12 @@ const Home = () => {
 
       <div class="row">
         <div class="column">
-          {!token && <button onClick={loginHandler}>Login</button>}
-          {!token && <button onClick={signupHandler}>Signup</button>}
-          {token && <button onClick={signoutHandler}>Signout</button>}
+          {!token && <button variant="text" onClick={loginHandler}>Login</button>}
+          {!token && <button variant="text" onClick={signupHandler}>Signup</button>}
+          {token && <button variant="text" onClick={signoutHandler}>Signout</button>}
         </div>
-        <div class="column">
-          <div className="homeimage">
-            <img src={pic} alt="" />
-          </div>
+        <div class="column homeimage">
+          <img src={pic} alt="" />
         </div>
       </div>
 

@@ -50,7 +50,7 @@ const PatientSignup = () => {
         Password: 
         <input
           id="input"
-          type="text"
+          type="password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
