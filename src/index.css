@@ -37,16 +37,6 @@ a {
   margin: 40px auto;
   padding: 20px;
 }
-
-button {
-  background: #09a188;
-  color: #fff;
-  border: 0;
-  margin:5px;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 .card {
   /* Add shadows to create the "card" effect */
   margin: 10px;
@@ -96,6 +86,30 @@ body{
   font-weight: 500;
 }
 
+.login-signup form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.login-signup form > div {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.login-signup form label {
+  display: block;
+  margin-bottom: 0.3em;
+} 
+
+.login-signup form input {
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  padding: 0.4em;
+  border-radius: 6px;
+  border: 1px solid #333e5a;
+} 
+
 footer {
   position:fixed;
   width:100%;
@@ -107,7 +121,16 @@ footer {
   flex-grow: 0;
   padding: 1em 0;
 }
-
+button {
+  background: #333e5a;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 0;
+  margin:5px;
+  padding: 6px;
+  cursor: pointer;
+}
 footer a {
   color: #fff;
 }

@@ -32,7 +32,7 @@ const PatientLogin = () => {
   };
 
   return (
-    <div>
+    <div className="login-signup">
       <h1>Patient Login</h1>
       <form id="form" onSubmit={handleSubmit}>
         Email:
@@ -55,11 +55,11 @@ const PatientLogin = () => {
           }}
         />
         <br />
+        <button type="submit" value="Submit">
+          Login
+        </button>
         <button onClick={() => {navigate("/patient/signup")}}>
           Signup
-        </button>
-        <button type="submit" value="Submit">
-          Send
         </button>
       </form>
     </div>

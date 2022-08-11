@@ -24,7 +24,7 @@ const PatientSignup = () => {
   };
 
   return (
-    <div>
+    <div className="login-signup">
       <h1>Patient Signup</h1>
       <form id="form" onSubmit={handleSubmit}>
         Name: 
@@ -57,11 +57,11 @@ const PatientSignup = () => {
           }}
         />
         <br />
+        <button type="submit" value="Submit">
+          Register
+        </button>
         <button onClick={() => {navigate("/patient/login")}}>
           Login
-        </button>
-        <button type="submit" value="Submit">
-          Send
         </button>
       </form>
     </div>

@@ -84,7 +84,7 @@ const Form = () => {
     e.preventDefault();
     axios
       .post(
-          `${getModelUrl()}/api/predict`,
+        `${getModelUrl()}/api/predict`,
         {
           muscle_weakness: dis1 === "yes",
           coma: dis2 === "yes",
@@ -141,679 +141,695 @@ const Form = () => {
         Welcome to our symptoms checker page, the model is still in beta but you
         can still check it out as we can ensure a 80% plus accuracy.
       </h3>
-      { !prediction && (<div>
-      <p>
-        Select the symptoms that the patient is exhibiting or suspecting to
-        have.
-      </p>
-      <form className="symptoms" onSubmit={handleSubmit}>
-        <div className="dis1">
-          {symptoms[0]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis1 === "yes"}
-            onChange={(event) => setDis1(event.target.value)}
-            name="dis1"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis1 === "no"}
-            onChange={(event) => setDis1(event.target.value)}
-            name="dis1"
-          />
-          No
-          <br />
-          {symptoms[1]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis2 === "yes"}
-            onChange={(event) => setDis2(event.target.value)}
-            name="dis2"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis2 === "no"}
-            onChange={(event) => setDis2(event.target.value)}
-            name="dis2"
-          />
-          No
-          <br />
-          {symptoms[2]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis3 === "yes"}
-            onChange={(event) => setDis3(event.target.value)}
-            name="dis3"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis3 === "no"}
-            onChange={(event) => setDis3(event.target.value)}
-            name="dis3"
-          />
-          No
-          <br />
-          {symptoms[3]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis4 === "yes"}
-            onChange={(event) => setDis4(event.target.value)}
-            name="dis4"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis4 === "no"}
-            onChange={(event) => setDis4(event.target.value)}
-            name="dis4"
-          />
-          No
-          <br />
-          {symptoms[4]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis5 === "yes"}
-            onChange={(event) => setDis5(event.target.value)}
-            name="dis5"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis5 === "no"}
-            onChange={(event) => setDis5(event.target.value)}
-            name="dis5"
-          />
-          No
-          <br />
-          {symptoms[5]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis6 === "yes"}
-            onChange={(event) => setDis6(event.target.value)}
-            name="dis6"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis6 === "no"}
-            onChange={(event) => setDis6(event.target.value)}
-            name="dis6"
-          />
-          No
-          <br />
-          {symptoms[6]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis7 === "yes"}
-            onChange={(event) => setDis7(event.target.value)}
-            name="dis7"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis7 === "no"}
-            onChange={(event) => setDis7(event.target.value)}
-            name="dis7"
-          />
-          No
-          <br />
-          {symptoms[7]}
-          <input
-            type="radio"
-            value="yes"
-            checked={dis8 === "yes"}
-            onChange={(event) => setDis8(event.target.value)}
-            name="dis8"
-          />
-          Yes
-          <input
-            type="radio"
-            value="no"
-            checked={dis8 === "no"}
-            onChange={(event) => setDis8(event.target.value)}
-            name="dis8"
-          />
-          No
-          <br />
+      {!prediction && (
+        <div>
+          <p>
+            Select the symptoms that the patient is exhibiting or suspecting to
+            have.
+          </p>
+          <form className="symptoms" onSubmit={handleSubmit}>
+            {symptoms[0]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis1 === "yes"}
+              onChange={(event) => setDis1(event.target.value)}
+              name="dis1"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis1 === "no"}
+              onChange={(event) => setDis1(event.target.value)}
+              name="dis1"
+            />
+            No
+            <br />
+            {symptoms[1]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis2 === "yes"}
+              onChange={(event) => setDis2(event.target.value)}
+              name="dis2"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis2 === "no"}
+              onChange={(event) => setDis2(event.target.value)}
+              name="dis2"
+            />
+            No
+            <br />
+            {symptoms[2]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis3 === "yes"}
+              onChange={(event) => setDis3(event.target.value)}
+              name="dis3"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis3 === "no"}
+              onChange={(event) => setDis3(event.target.value)}
+              name="dis3"
+            />
+            No
+            <br />
+            {symptoms[3]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis4 === "yes"}
+              onChange={(event) => setDis4(event.target.value)}
+              name="dis4"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis4 === "no"}
+              onChange={(event) => setDis4(event.target.value)}
+              name="dis4"
+            />
+            No
+            <br />
+            {symptoms[4]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis5 === "yes"}
+              onChange={(event) => setDis5(event.target.value)}
+              name="dis5"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis5 === "no"}
+              onChange={(event) => setDis5(event.target.value)}
+              name="dis5"
+            />
+            No
+            <br />
+            {symptoms[5]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis6 === "yes"}
+              onChange={(event) => setDis6(event.target.value)}
+              name="dis6"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis6 === "no"}
+              onChange={(event) => setDis6(event.target.value)}
+              name="dis6"
+            />
+            No
+            <br />
+            {symptoms[6]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis7 === "yes"}
+              onChange={(event) => setDis7(event.target.value)}
+              name="dis7"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis7 === "no"}
+              onChange={(event) => setDis7(event.target.value)}
+              name="dis7"
+            />
+            No
+            <br />
+            {symptoms[7]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis8 === "yes"}
+              onChange={(event) => setDis8(event.target.value)}
+              name="dis8"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis8 === "no"}
+              onChange={(event) => setDis8(event.target.value)}
+              name="dis8"
+            />
+            No
+            <br />
+            {symptoms[8]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis9 === "yes"}
+              onChange={(event) => setDis9(event.target.value)}
+              name="dis9"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis9 === "no"}
+              onChange={(event) => setDis9(event.target.value)}
+              name="dis9"
+            />
+            No
+            <br />
+            {symptoms[9]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis10 === "yes"}
+              onChange={(event) => setDis10(event.target.value)}
+              name="dis10"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis10 === "no"}
+              onChange={(event) => setDis10(event.target.value)}
+              name="dis10"
+            />
+            No
+            <br />
+            {symptoms[10]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis11 === "yes"}
+              onChange={(event) => setDis11(event.target.value)}
+              name="dis11"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis11 === "no"}
+              onChange={(event) => setDis11(event.target.value)}
+              name="dis11"
+            />
+            No
+            <br />
+            {symptoms[11]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis12 === "yes"}
+              onChange={(event) => setDis12(event.target.value)}
+              name="dis12"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis12 === "no"}
+              onChange={(event) => setDis12(event.target.value)}
+              name="dis12"
+            />
+            No
+            <br />
+            {symptoms[12]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis13 === "yes"}
+              onChange={(event) => setDis13(event.target.value)}
+              name="dis13"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis13 === "no"}
+              onChange={(event) => setDis13(event.target.value)}
+              name="dis13"
+            />
+            No
+            <br />
+            {symptoms[13]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis14 === "yes"}
+              onChange={(event) => setDis14(event.target.value)}
+              name="dis14"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis14 === "no"}
+              onChange={(event) => setDis14(event.target.value)}
+              name="dis14"
+            />
+            No
+            <br />
+            {symptoms[14]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis15 === "yes"}
+              onChange={(event) => setDis15(event.target.value)}
+              name="dis15"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis15 === "no"}
+              onChange={(event) => setDis15(event.target.value)}
+              name="dis15"
+            />
+            No
+            <br />
+            {symptoms[15]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis16 === "yes"}
+              onChange={(event) => setDis16(event.target.value)}
+              name="dis16"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis16 === "no"}
+              onChange={(event) => setDis16(event.target.value)}
+              name="dis16"
+            />
+            No
+            <br />
+            {symptoms[16]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis17 === "yes"}
+              onChange={(event) => setDis17(event.target.value)}
+              name="dis17"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis17 === "no"}
+              onChange={(event) => setDis17(event.target.value)}
+              name="dis17"
+            />
+            No
+            <br />
+            {symptoms[17]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis18 === "yes"}
+              onChange={(event) => setDis18(event.target.value)}
+              name="dis18"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis18 === "no"}
+              onChange={(event) => setDis18(event.target.value)}
+              name="dis18"
+            />
+            No
+            <br />
+            {symptoms[18]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis19 === "yes"}
+              onChange={(event) => setDis19(event.target.value)}
+              name="dis19"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis19 === "no"}
+              onChange={(event) => setDis19(event.target.value)}
+              name="dis19"
+            />
+            No
+            <br />
+            {symptoms[19]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis20 === "yes"}
+              onChange={(event) => setDis20(event.target.value)}
+              name="dis20"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis20 === "no"}
+              onChange={(event) => setDis20(event.target.value)}
+              name="dis20"
+            />
+            No
+            <br />
+            {symptoms[20]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis21 === "yes"}
+              onChange={(event) => setDis21(event.target.value)}
+              name="dis21"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis21 === "no"}
+              onChange={(event) => setDis21(event.target.value)}
+              name="dis21"
+            />
+            No
+            <br />
+            {symptoms[21]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis22 === "yes"}
+              onChange={(event) => setDis22(event.target.value)}
+              name="dis22"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis22 === "no"}
+              onChange={(event) => setDis22(event.target.value)}
+              name="dis22"
+            />
+            No
+            <br />
+            {symptoms[22]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis23 === "yes"}
+              onChange={(event) => setDis23(event.target.value)}
+              name="dis23"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis23 === "no"}
+              onChange={(event) => setDis23(event.target.value)}
+              name="dis23"
+            />
+            No
+            <br />
+            {symptoms[23]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis24 === "yes"}
+              onChange={(event) => setDis24(event.target.value)}
+              name="dis24"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis24 === "no"}
+              onChange={(event) => setDis24(event.target.value)}
+              name="dis24"
+            />
+            No
+            <br />
+            {symptoms[24]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis25 === "yes"}
+              onChange={(event) => setDis25(event.target.value)}
+              name="dis25"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis25 === "no"}
+              onChange={(event) => setDis25(event.target.value)}
+              name="dis25"
+            />
+            No
+            <br />
+            {symptoms[25]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis26 === "yes"}
+              onChange={(event) => setDis26(event.target.value)}
+              name="dis26"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis26 === "no"}
+              onChange={(event) => setDis26(event.target.value)}
+              name="dis26"
+            />
+            No
+            <br />
+            {symptoms[26]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis27 === "yes"}
+              onChange={(event) => setDis27(event.target.value)}
+              name="dis27"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis27 === "no"}
+              onChange={(event) => setDis27(event.target.value)}
+              name="dis27"
+            />
+            No
+            <br />
+            {symptoms[27]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis28 === "yes"}
+              onChange={(event) => setDis28(event.target.value)}
+              name="dis28"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis28 === "no"}
+              onChange={(event) => setDis28(event.target.value)}
+              name="dis28"
+            />
+            No
+            <br />
+            {symptoms[28]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis29 === "yes"}
+              onChange={(event) => setDis29(event.target.value)}
+              name="dis29"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis29 === "no"}
+              onChange={(event) => setDis29(event.target.value)}
+              name="dis29"
+            />
+            No
+            <br />
+            {symptoms[29]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis30 === "yes"}
+              onChange={(event) => setDis30(event.target.value)}
+              name="dis30"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis30 === "no"}
+              onChange={(event) => setDis30(event.target.value)}
+              name="dis30"
+            />
+            No
+            <br />
+            {symptoms[30]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis31 === "yes"}
+              onChange={(event) => setDis31(event.target.value)}
+              name="dis31"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis31 === "no"}
+              onChange={(event) => setDis31(event.target.value)}
+              name="dis31"
+            />
+            No
+            <br />
+            {symptoms[31]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis32 === "yes"}
+              onChange={(event) => setDis32(event.target.value)}
+              name="dis32"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis32 === "no"}
+              onChange={(event) => setDis32(event.target.value)}
+              name="dis32"
+            />
+            No
+            <br />
+            {symptoms[32]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis33 === "yes"}
+              onChange={(event) => setDis33(event.target.value)}
+              name="dis33"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis33 === "no"}
+              onChange={(event) => setDis33(event.target.value)}
+              name="dis33"
+            />
+            No
+            <br />
+            {symptoms[33]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis34 === "yes"}
+              onChange={(event) => setDis34(event.target.value)}
+              name="dis34"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis34 === "no"}
+              onChange={(event) => setDis34(event.target.value)}
+              name="dis34"
+            />
+            No
+            <br />
+            {symptoms[34]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis35 === "yes"}
+              onChange={(event) => setDis35(event.target.value)}
+              name="dis35"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis35 === "no"}
+              onChange={(event) => setDis35(event.target.value)}
+              name="dis35"
+            />
+            No
+            <br />
+            {symptoms[35]}
+            <input
+              type="radio"
+              value="yes"
+              checked={dis36 === "yes"}
+              onChange={(event) => setDis36(event.target.value)}
+              name="dis36"
+            />
+            Yes
+            <input
+              type="radio"
+              value="no"
+              checked={dis36 === "no"}
+              onChange={(event) => setDis36(event.target.value)}
+              name="dis36"
+            />
+            No
+            <br />
+            <button type="submit" value="Submit">
+              Submit
+            </button>
+          </form>
+          <br></br>
+          <br></br>
+          <br></br>
         </div>
-        {symptoms[8]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis9 === "yes"}
-          onChange={(event) => setDis9(event.target.value)}
-          name="dis9"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis9 === "no"}
-          onChange={(event) => setDis9(event.target.value)}
-          name="dis9"
-        />
-        No
-        <br />
-        {symptoms[9]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis10 === "yes"}
-          onChange={(event) => setDis10(event.target.value)}
-          name="dis10"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis10 === "no"}
-          onChange={(event) => setDis10(event.target.value)}
-          name="dis10"
-        />
-        No
-        <br />
-        {symptoms[10]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis11 === "yes"}
-          onChange={(event) => setDis11(event.target.value)}
-          name="dis11"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis11 === "no"}
-          onChange={(event) => setDis11(event.target.value)}
-          name="dis11"
-        />
-        No
-        <br />
-        {symptoms[11]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis12 === "yes"}
-          onChange={(event) => setDis12(event.target.value)}
-          name="dis12"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis12 === "no"}
-          onChange={(event) => setDis12(event.target.value)}
-          name="dis12"
-        />
-        No
-        <br />
-        {symptoms[12]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis13 === "yes"}
-          onChange={(event) => setDis13(event.target.value)}
-          name="dis13"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis13 === "no"}
-          onChange={(event) => setDis13(event.target.value)}
-          name="dis13"
-        />
-        No
-        <br />
-        {symptoms[13]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis14 === "yes"}
-          onChange={(event) => setDis14(event.target.value)}
-          name="dis14"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis14 === "no"}
-          onChange={(event) => setDis14(event.target.value)}
-          name="dis14"
-        />
-        No
-        <br />
-        {symptoms[14]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis15 === "yes"}
-          onChange={(event) => setDis15(event.target.value)}
-          name="dis15"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis15 === "no"}
-          onChange={(event) => setDis15(event.target.value)}
-          name="dis15"
-        />
-        No
-        <br />
-        {symptoms[15]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis16 === "yes"}
-          onChange={(event) => setDis16(event.target.value)}
-          name="dis16"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis16 === "no"}
-          onChange={(event) => setDis16(event.target.value)}
-          name="dis16"
-        />
-        No
-        <br />
-        {symptoms[16]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis17 === "yes"}
-          onChange={(event) => setDis17(event.target.value)}
-          name="dis17"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis17 === "no"}
-          onChange={(event) => setDis17(event.target.value)}
-          name="dis17"
-        />
-        No
-        <br />
-        {symptoms[17]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis18 === "yes"}
-          onChange={(event) => setDis18(event.target.value)}
-          name="dis18"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis18 === "no"}
-          onChange={(event) => setDis18(event.target.value)}
-          name="dis18"
-        />
-        No
-        <br />
-        {symptoms[18]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis19 === "yes"}
-          onChange={(event) => setDis19(event.target.value)}
-          name="dis19"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis19 === "no"}
-          onChange={(event) => setDis19(event.target.value)}
-          name="dis19"
-        />
-        No
-        <br />
-        {symptoms[19]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis20 === "yes"}
-          onChange={(event) => setDis20(event.target.value)}
-          name="dis20"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis20 === "no"}
-          onChange={(event) => setDis20(event.target.value)}
-          name="dis20"
-        />
-        No
-        <br />
-        {symptoms[20]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis21 === "yes"}
-          onChange={(event) => setDis21(event.target.value)}
-          name="dis21"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis21 === "no"}
-          onChange={(event) => setDis21(event.target.value)}
-          name="dis21"
-        />
-        No
-        <br />
-        {symptoms[21]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis22 === "yes"}
-          onChange={(event) => setDis22(event.target.value)}
-          name="dis22"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis22 === "no"}
-          onChange={(event) => setDis22(event.target.value)}
-          name="dis22"
-        />
-        No
-        <br />
-        {symptoms[22]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis23 === "yes"}
-          onChange={(event) => setDis23(event.target.value)}
-          name="dis23"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis23 === "no"}
-          onChange={(event) => setDis23(event.target.value)}
-          name="dis23"
-        />
-        No
-        <br />
-        {symptoms[23]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis24 === "yes"}
-          onChange={(event) => setDis24(event.target.value)}
-          name="dis24"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis24 === "no"}
-          onChange={(event) => setDis24(event.target.value)}
-          name="dis24"
-        />
-        No
-        <br />
-        {symptoms[24]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis25 === "yes"}
-          onChange={(event) => setDis25(event.target.value)}
-          name="dis25"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis25 === "no"}
-          onChange={(event) => setDis25(event.target.value)}
-          name="dis25"
-        />
-        No
-        <br />
-        {symptoms[25]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis26 === "yes"}
-          onChange={(event) => setDis26(event.target.value)}
-          name="dis26"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis26 === "no"}
-          onChange={(event) => setDis26(event.target.value)}
-          name="dis26"
-        />
-        No
-        <br />
-        {symptoms[26]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis27 === "yes"}
-          onChange={(event) => setDis27(event.target.value)}
-          name="dis27"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis27 === "no"}
-          onChange={(event) => setDis27(event.target.value)}
-          name="dis27"
-        />
-        No
-        <br />
-        {symptoms[27]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis28 === "yes"}
-          onChange={(event) => setDis28(event.target.value)}
-          name="dis28"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis28 === "no"}
-          onChange={(event) => setDis28(event.target.value)}
-          name="dis28"
-        />
-        No
-        <br />
-        {symptoms[28]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis29 === "yes"}
-          onChange={(event) => setDis29(event.target.value)}
-          name="dis29"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis29 === "no"}
-          onChange={(event) => setDis29(event.target.value)}
-          name="dis29"
-        />
-        No
-        <br />
-        {symptoms[29]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis30 === "yes"}
-          onChange={(event) => setDis30(event.target.value)}
-          name="dis30"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis30 === "no"}
-          onChange={(event) => setDis30(event.target.value)}
-          name="dis30"
-        />
-        No
-        <br />
-        {symptoms[30]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis31 === "yes"}
-          onChange={(event) => setDis31(event.target.value)}
-          name="dis31"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis31 === "no"}
-          onChange={(event) => setDis31(event.target.value)}
-          name="dis31"
-        />
-        No
-        <br />
-        {symptoms[31]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis32 === "yes"}
-          onChange={(event) => setDis32(event.target.value)}
-          name="dis32"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis32 === "no"}
-          onChange={(event) => setDis32(event.target.value)}
-          name="dis32"
-        />
-        No
-        <br />
-        {symptoms[32]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis33 === "yes"}
-          onChange={(event) => setDis33(event.target.value)}
-          name="dis33"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis33 === "no"}
-          onChange={(event) => setDis33(event.target.value)}
-          name="dis33"
-        />
-        No
-        <br />
-        {symptoms[33]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis34 === "yes"}
-          onChange={(event) => setDis34(event.target.value)}
-          name="dis34"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis34 === "no"}
-          onChange={(event) => setDis34(event.target.value)}
-          name="dis34"
-        />
-        No
-        <br />
-        {symptoms[34]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis35 === "yes"}
-          onChange={(event) => setDis35(event.target.value)}
-          name="dis35"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis35 === "no"}
-          onChange={(event) => setDis35(event.target.value)}
-          name="dis35"
-        />
-        No
-        <br />
-        {symptoms[35]}
-        <input
-          type="radio"
-          value="yes"
-          checked={dis36 === "yes"}
-          onChange={(event) => setDis36(event.target.value)}
-          name="dis36"
-        />
-        Yes
-        <input
-          type="radio"
-          value="no"
-          checked={dis36 === "no"}
-          onChange={(event) => setDis36(event.target.value)}
-          name="dis36"
-        />
-        No
-        <br />
-        <button type="submit" value="Submit">
-          Submit
-        </button>
-      </form>
-      <br></br>
-      <br></br>
-      <br></br>
-      </div>)}
-      { prediction && (<div>
-        <p>Probable diseases patient needs to check for: <h3>{prediction}</h3></p>
-      <button onClick={()=>{setPrediction(null)}}>
-          Check Again
-      </button><hr />
-      Do you want to <Link to="/appointments" style={{
-  "text-decoration": "underline"
-}}>book an appointment</Link> regarding this?
-      </div>)}
+      )}
+      {prediction && (
+        <div>
+          <p>
+            Probable diseases patient needs to check for: <h3>{prediction}</h3>
+          </p>
+          <button
+            onClick={() => {
+              setPrediction(null);
+            }}
+          >
+            Check Again
+          </button>
+          <hr />
+          Do you want to{" "}
+          <Link
+            to="/appointments"
+            style={{
+              "text-decoration": "underline",
+            }}
+          >
+            book an appointment
+          </Link>{" "}
+          regarding this?
+        </div>
+      )}
     </div>
   );
 };
