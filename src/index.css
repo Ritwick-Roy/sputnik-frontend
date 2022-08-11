@@ -92,11 +92,14 @@ body{
   flex: 50%;
 }
 
+.symptoms{
+  font-weight: 500;
+}
+
 footer {
   position:fixed;
   width:100%;
   bottom:0;  
-  /* background: #309db6; */
   background:#00bb77;
   /* background:#09a188; */
   color: #fff;

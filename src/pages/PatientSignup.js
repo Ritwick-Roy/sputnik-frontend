@@ -57,6 +57,9 @@ const PatientSignup = () => {
           }}
         />
         <br />
+        <button onClick={() => {navigate("/patient/login")}}>
+          Login
+        </button>
         <button type="submit" value="Submit">
           Send
         </button>

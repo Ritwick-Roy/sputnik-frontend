@@ -1,20 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import signout from '../images/signout.png'
+import { Link } from "react-router-dom";
 const Navbar = () => {
-  const navigate = useNavigate();
-  const [token,setToken]=useState(null);
-  const [refresh, setRefresh] = useState();
-  
-  useEffect(()=>{
-    const loggedin=localStorage.getItem("token");
-    if(!loggedin)
-    {
-      navigate('/patient/login');
-    }
-    setToken(loggedin);
-  },[]);
-
   return (
     <nav className="navbar">
       <Link to="/">

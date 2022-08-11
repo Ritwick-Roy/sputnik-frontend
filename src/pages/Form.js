@@ -146,7 +146,7 @@ const Form = () => {
         Select the symptoms that the patient is exhibiting or suspecting to
         have.
       </p>
-      <form onSubmit={handleSubmit}>
+      <form className="symptoms" onSubmit={handleSubmit}>
         <div className="dis1">
           {symptoms[0]}
           <input
@@ -810,9 +810,9 @@ const Form = () => {
       <button onClick={()=>{setPrediction(null)}}>
           Check Again
       </button><hr />
-      Do you want to <Link to="/appointments/create" style={{
+      Do you want to <Link to="/appointments" style={{
   "text-decoration": "underline"
-}}>book appointment</Link> regarding this?
+}}>book an appointment</Link> regarding this?
       </div>)}
     </div>
   );

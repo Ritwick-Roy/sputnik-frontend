@@ -8,11 +8,11 @@ import DoctorDetails from './pages/DoctorDetails';
 import Appointments from './pages/Appointments';
 import Footer from './pages/Footer'
 import Doctors from './pages/Doctors';
-import DoctorSignup from './pages/DoctorSignup';
-import DoctorLogin from './pages/DoctorLogin';
+// import DoctorSignup from './pages/DoctorSignup';
+// import DoctorLogin from './pages/DoctorLogin';
 import PatientSignup from './pages/PatientSignup';
 import PatientLogin from './pages/PatientLogin';
-import PatientDetails from './pages/PatientDetails';
+// import PatientDetails from './pages/PatientDetails';
 import UploadFiles from './pages/UploadFiles';
 
 
