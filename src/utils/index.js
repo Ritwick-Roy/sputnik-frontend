@@ -1,12 +1,11 @@
-
-const getBaseUrl = () => {
+const getModelUrl = () => {
   let url;
   switch (process.env.NODE_ENV) {
     case "production":
       url = "https://sputnik-healthcare.herokuapp.com";
       break;
     case "development":
-      url = "http://localhost:8000";
+      url = "https://sputnik-healthcare.herokuapp.com";
       break;
     default:
       url = "http://localhost:8000";
@@ -14,4 +13,19 @@ const getBaseUrl = () => {
   return url;
 };
 
-export default getBaseUrl;
+const getBaseUrl = () => {
+  let url;
+  switch (process.env.NODE_ENV) {
+    case "production":
+      url = "https://sputnik-backend.herokuapp.com";
+      break;
+    case "development":
+      url = "http://localhost:5000";
+      break;
+    default:
+      url = "http://localhost:5000";
+  }
+  return url;
+};
+
+module.exports= { getModelUrl,getBaseUrl };

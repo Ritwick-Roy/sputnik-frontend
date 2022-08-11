@@ -2,7 +2,7 @@ import asyncHandler from "express-async-handler";
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import getBaseUrl from "./utils";
+import { getModelUrl } from "../utils/index";
 
 const Form = () => {
   const [prediction, setPrediction] = useState(null);
@@ -84,7 +84,7 @@ const Form = () => {
     e.preventDefault();
     axios
       .post(
-          `${getBaseUrl()}/api/predict`,
+          `${getModelUrl()}/api/predict`,
         {
           muscle_weakness: dis1 === "yes",
           coma: dis2 === "yes",
@@ -801,15 +801,18 @@ const Form = () => {
           Submit
         </button>
       </form>
+      <br></br>
+      <br></br>
+      <br></br>
       </div>)}
       { prediction && (<div>
         <p>Probable diseases patient needs to check for: <h3>{prediction}</h3></p>
       <button onClick={()=>{setPrediction(null)}}>
           Check Again
       </button><hr />
-      Do you want to 
-      <Link to="/create">Book Appointment</Link> 
-       regarding this?
+      Do you want to <Link to="/appointments/create" style={{
+  "text-decoration": "underline"
+}}>book appointment</Link> regarding this?
       </div>)}
     </div>
   );

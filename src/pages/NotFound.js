@@ -5,7 +5,7 @@ const NotFound = () => {
         <div className="not-found">
             <h2>Sorry</h2>
             <p>The page was not found!</p>
-            <Link to="/">Return to Homepage</Link>
+            <Link to="/" style={{textDecoration:'underline'}}>Return to Homepage</Link>
         </div>
     );
 }
