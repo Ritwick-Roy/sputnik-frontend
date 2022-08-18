@@ -8,7 +8,7 @@ const Footer = () =>{
           <span role="img" aria-label="React">
           ❤️
           </span>{' '}
-          by <a href="https://github.com/ritwick-roy">Ritwick</a>
+          by <a href="https://github.com/ritwick-roy" style={{textDecoration:"underline"}}>Ritwick</a>
         </p>
       </footer>
   );

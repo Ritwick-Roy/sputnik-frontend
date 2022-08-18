@@ -1,5 +1,16 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   return (
     <nav className="navbar">
       <Link to="/">
@@ -7,12 +18,15 @@ const Navbar = () => {
       </Link>
       <div className="links">
         <Link
+          className="predict-link"
           to="/predict"
           style={{
-            color: "white",
-            backgroundColor: "#09a188",
+            color: isHovering ? "#333":"white",
+            backgroundColor: isHovering ? "":"#09a188",
             borderRadius: "8px",
           }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           Predict
         </Link>
