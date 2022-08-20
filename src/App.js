@@ -6,7 +6,9 @@ import Navbar from './pages/Navbar';
 import NotFound from './pages/NotFound';
 import DoctorDetails from './pages/DoctorDetails';
 import Appointments from './pages/Appointments';
-import Footer from './pages/Footer'
+import Footer from './pages/Footer';
+import Chat from './pages/Chat';
+import ChatRoom from './pages/ChatRoom';
 import Doctors from './pages/Doctors';
 // import DoctorSignup from './pages/DoctorSignup';
 // import DoctorLogin from './pages/DoctorLogin';
@@ -29,6 +31,8 @@ function App() {
           <Route path="/patient/upload" element={<UploadFiles/>}/>
           <Route path="/patient/signup" element={<PatientSignup/>}/>
           <Route path="/patient/login" element={<PatientLogin/>}/>
+          <Route path="/chat" element={<Chat/>}/>
+          <Route path="/chatroom" element={<ChatRoom/>}/>
           {/* <Route path="/patient/:patientId" element={<PatientDetails/>}/> */}
           <Route path="/appointments" element={<Appointments/>}/>
           <Route path="/appointments/create/:doctorId" element={<DoctorDetails/>}/>
