@@ -1,22 +1,30 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getBaseUrl } from "../utils/index";
+import { getBaseUrl } from "../../utils";
 
-const PatientSignup = () => {
-  const [name, setName] = useState("");
+const DoctorLogin = () => {
+  const navigate = useNavigate();
+  const [token,setToken]=useState("");
+  useEffect(()=>{
+    const loggedin=localStorage.getItem("token");
+    if(loggedin)
+    {
+      navigate('/doctors');
+    }
+    setToken(loggedin);
+  },[]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate=useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${getBaseUrl()}/api/patient/register`,{name,email,password})
+      .post(`${getBaseUrl()}/api/doctor/login`, { email, password })
       .then((res) => {
         console.log(res.data);
         const { token } = res.data;
         localStorage.setItem("token", token);
-        navigate('/',{ replace: true });
+        navigate("/",{ replace: true });
       })
       .catch((err) => {
         if (err) console.log(err);
@@ -24,20 +32,10 @@ const PatientSignup = () => {
   };
 
   return (
-    <div className="login-signup">
-      <h1>Patient Signup</h1>
+    <div>
+      <h1>Doctor Login</h1>
       <form id="form" onSubmit={handleSubmit}>
-        Name: 
-        <input
-          id="input"
-          type="text"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <br />
-        Email:
+        Email
         <input
           id="input"
           type="text"
@@ -46,26 +44,21 @@ const PatientSignup = () => {
             setEmail(e.target.value);
           }}
         />
-        <br />
-        Password: 
+        Password
         <input
           id="input"
-          type="password"
+          type="text"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
-        <br />
         <button type="submit" value="Submit">
-          Register
-        </button>
-        <button onClick={() => {navigate("/patient/login")}}>
-          Login
+          Send
         </button>
       </form>
     </div>
   );
 };
 
-export default PatientSignup;
+export default DoctorLogin;

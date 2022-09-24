@@ -1,30 +1,23 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getBaseUrl } from "../utils";
+import { getBaseUrl } from "../../utils/index";
 
-const DoctorLogin = () => {
-  const navigate = useNavigate();
-  const [token,setToken]=useState("");
-  useEffect(()=>{
-    const loggedin=localStorage.getItem("token");
-    if(loggedin)
-    {
-      navigate('/doctors');
-    }
-    setToken(loggedin);
-  },[]);
+const DoctorSignup = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [specialization, setSpecialization] = useState("");
+  const navigate=useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${getBaseUrl()}/api/doctor/login`, { email, password })
+      .post(`${getBaseUrl()}/api/doctor/register`,{name,email,password,specialization})
       .then((res) => {
         console.log(res.data);
         const { token } = res.data;
         localStorage.setItem("token", token);
-        navigate("/",{ replace: true });
+        navigate('/',{ replace: true });
       })
       .catch((err) => {
         if (err) console.log(err);
@@ -33,8 +26,17 @@ const DoctorLogin = () => {
 
   return (
     <div>
-      <h1>Doctor Login</h1>
+      <h1>Doctor Signup</h1>
       <form id="form" onSubmit={handleSubmit}>
+        Name
+        <input
+          id="input"
+          type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
         Email
         <input
           id="input"
@@ -53,6 +55,15 @@ const DoctorLogin = () => {
             setPassword(e.target.value);
           }}
         />
+        Specialization
+        <input
+          id="input"
+          type="text"
+          value={specialization}
+          onChange={(e) => {
+            setSpecialization(e.target.value);
+          }}
+        />
         <button type="submit" value="Submit">
           Send
         </button>
@@ -61,4 +72,4 @@ const DoctorLogin = () => {
   );
 };
 
-export default DoctorLogin;
+export default DoctorSignup;

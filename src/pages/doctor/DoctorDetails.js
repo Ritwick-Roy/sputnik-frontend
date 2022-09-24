@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams,useNavigate, Link } from "react-router-dom";
-import { getBaseUrl } from "../utils/index";
+import { getBaseUrl } from "../../utils/index";
 
 const DoctorDetails = () => {
   const [doctors, setDoctors] = useState({});

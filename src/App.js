@@ -1,21 +1,21 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Form from './pages/Form';
+import Form from './pages/Predict';
 import Home from './pages/Home';
-import Navbar from './pages/Navbar';
+import Navbar from './components/Navbar';
 import NotFound from './pages/NotFound';
-import DoctorDetails from './pages/DoctorDetails';
+import DoctorDetails from './pages/doctor/DoctorDetails';
 import Appointments from './pages/Appointments';
-import Footer from './pages/Footer';
+import Footer from './components/Footer';
 import Chat from './pages/Chat';
 import ChatRoom from './pages/ChatRoom';
-import Doctors from './pages/Doctors';
+import Doctors from './pages/doctor/Doctors';
 // import DoctorSignup from './pages/DoctorSignup';
 // import DoctorLogin from './pages/DoctorLogin';
-import PatientSignup from './pages/PatientSignup';
-import PatientLogin from './pages/PatientLogin';
+import PatientSignup from './pages/patient/PatientSignup';
+import PatientLogin from './pages/patient/PatientLogin';
 // import PatientDetails from './pages/PatientDetails';
-import UploadFiles from './pages/UploadFiles';
+import UploadFiles from './components/UploadFiles';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
       <Navbar />  
       <div className="cont">
         <Routes>
-          <Route exact path="/" element={<Home/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/predict" element={<Form/>}/>
           <Route path="/patient/upload" element={<UploadFiles/>}/>
           <Route path="/patient/signup" element={<PatientSignup/>}/>
